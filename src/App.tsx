@@ -1,8 +1,10 @@
 import MainContainer from "./core/layout/MainContainer";
 
 function App() {
+  const appName="Duckbox";
+  let userName="John Doe";
   return (
-      <MainContainer></MainContainer>
+      <MainContainer parentAppName={appName} parentUserName={userName}></MainContainer>
   );
 }
 
