@@ -1,6 +1,8 @@
+import MainContainer from "./core/layout/MainContainer";
+
 function App() {
   return (
-      <div>hello</div>
+      <MainContainer></MainContainer>
   );
 }
 
