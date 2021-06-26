@@ -1,4 +1,5 @@
 import Header from "./Header";
+import PageContainer from "./PageContainer";
 
 const MainContainer = (props:any) => { 
     const {parentAppName}= props;
@@ -6,6 +7,7 @@ const MainContainer = (props:any) => {
     return (
         <div>Hello {props.parentUserName}, welcome to {parentAppName}
         <Header companyAddress={headOffice}></Header>
+        <PageContainer></PageContainer>
         </div>
     )
 }
