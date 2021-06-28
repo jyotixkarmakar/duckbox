@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HomePage = (props: any) => {
     let productname = "Milk"
@@ -6,15 +6,24 @@ const HomePage = (props: any) => {
         productname = "Egg";
     }
     const changeShop = () => {
-        setShopName("Big Bazar");        
+        setShopName("Big Bazar");
         setCount(0);
     }
     const [shopName, setShopName] = useState("BBQ");
     const [count, setCount] = useState(0);
-    
     const purchaseMilk = () => {
-        setCount(count+1);
+        setCount(count + 1);
     }
+    useEffect(() => {
+        console.log("ue1")
+    });
+
+    useEffect(() => {
+        console.log("ue2")
+    }, []);
+    useEffect(() => {
+        console.log("ue3")
+    }, [count]);
     return (
         <div>
             <h1>Essentials delivered to your doorstep</h1>
