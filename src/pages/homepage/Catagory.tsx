@@ -1,6 +1,7 @@
 import {useEffect ,useState } from "react";
 import Shoplist from "./ShopList";
 
+
 const Catagory = (props: any) => {
    const [catagoryName, setCatagoryName] = useState();
 
@@ -26,7 +27,7 @@ const Catagory = (props: any) => {
     <button onClick={() =>changeCatagoryName("Fruit")}>shop</button>
     </div>
     <div>you have selected {catagoryName} catagory</div>
-    
+    <Shoplist catagory={catagoryName}></Shoplist>
     </div>
    
     
