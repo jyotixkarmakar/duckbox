@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import Catagory from "./Catagory";
 
 const HomePage = (props: any) => {
     let productname = "Milk"
     const changeProduct = () => {
         productname = "Egg";
     }
-    const changeShop = () => {
-        setShopName("Big Bazar");
+    const changeShop = (shopName:any) => {
+        setShopName(shopName);
         setCount(0);
     }
+  
     const [shopName, setShopName] = useState("BBQ");
     const [count, setCount] = useState(0);
     const purchaseMilk = () => {
@@ -26,30 +28,19 @@ const HomePage = (props: any) => {
     }, [count]);
     return (
         <div>
-            <h1>Essentials delivered to your doorstep</h1>
-            <div style={{ display: "flex", textAlign: "center" }}>
-                <div style={{ width: "32%", margin: "1%", height: "100px", background: "#eee" }}>
-                    <h1>Grocery</h1>
-                </div>
-                <div style={{ width: "32%", margin: "1%", height: "100px", background: "#eee" }}>
-                    <h1>Vegetable</h1>
-                </div>
-                <div style={{ width: "32%", margin: "1%", height: "100px", background: "#eee" }}>
-                    <h1>Restaurant</h1>
-                </div>
-            </div>
-            <div>Product available : {productname}</div>
+             <div>Product available : {productname}</div>
             <button onClick={changeProduct}>
                 change Product
             </button>
             <div>Shop name : {shopName}</div>
-            <button onClick={changeShop}>
+            <button onClick={()=>changeShop("bigbazar")}>
                 change shop
             </button>
             <div>You have purchased {count} packet {productname} from {shopName}</div>
             <button onClick={purchaseMilk}>
                 Purchase Milk
             </button>
+            <Catagory></Catagory>
         </div>
     )
 }
