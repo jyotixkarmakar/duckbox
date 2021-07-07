@@ -24,15 +24,14 @@ const Shoplist = (props: any) => {
     },
   ];
   const [availableShop, setAvailableShop] = useState<any[]>([]);
-  
+
   useEffect(() => {
-    
+
     console.log("use")
-    let a = shoplist.filter((shop) =>
-    { 
+    let a = shoplist.filter((shop) => {
       console.log(shop.catagory);
-      return shop.catagory === props.category
-      });
+      return shop.catagory === props.catagory
+    });
     console.log(a)
     setAvailableShop(a);
   }, [props.catagory]);
@@ -41,10 +40,12 @@ const Shoplist = (props: any) => {
     <div>
       <div>you have selected {props.catagory} </div>
       <div>
-        {" "}
-        {availableShop.map((shop) => (
-          <div>ShopName: {shop} </div>
-        ))}
+        {availableShop.map((shop) =>
+          <div style={{ border: "1px solid #cc5", padding: "15px", margin: "15px" }}>
+            <div>ShopName: {shop.shopName}</div>
+            <div>Address: {shop.address}</div>
+          </div>
+        )}
       </div>
     </div>
   );
