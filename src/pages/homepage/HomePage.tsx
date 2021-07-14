@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Catagory from "./Catagory";
+import {styles}  from "./homepage-styles";
+
 
 const HomePage = (props: any) => {
     let productname = "Milk"
@@ -28,16 +30,16 @@ const HomePage = (props: any) => {
     }, [count]);
     return (
         <div>
-             <div>Product available : {productname}</div>
-            <button onClick={changeProduct}>
+             <div style={styles.parentDiv}>Product available : {productname}</div>
+            <button onClick={changeProduct} style={styles.buttonStyles}>
                 change Product
             </button>
             <div>Shop name : {shopName}</div>
-            <button onClick={()=>changeShop("bigbazar")}>
+            <button onClick={()=>changeShop("bigbazar")} style={styles.buttonStyles}>
                 change shop
             </button>
             <div>You have purchased {count} packet {productname} from {shopName}</div>
-            <button onClick={purchaseMilk}>
+            <button onClick={purchaseMilk} style={styles.buttonStyles}>
                 Purchase Milk
             </button>
             <Catagory></Catagory>

@@ -35,13 +35,13 @@ const Shoplist = (props: any) => {
     console.log(a)
     setAvailableShop(a);
   }, [props.catagory]);
-
+  const shopCardStyle = { background: '#000', color: '#5cc' };
   return (
     <div>
       <div>you have selected {props.catagory} </div>
       <div>
         {availableShop.map((shop) =>
-          <div style={{ border: "1px solid #cc5", padding: "15px", margin: "15px" }}>
+          <div style={shopCardStyle}>
             <div>ShopName: {shop.shopName}</div>
             <div>Address: {shop.address}</div>
           </div>
