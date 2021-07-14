@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
-import Catagory from "./Catagory";
+import "./styles.css";
+import { useStyles } from "./jss-styles"
+
+import {createUseStyles} from 'react-jss'
 const Shoplist = (props: any) => {
+  const classes=useStyles();
   const shoplist = [
     { shopName: "bigbazar", address: "raiganj", catagory: "Fruit" },
     {
@@ -35,14 +39,14 @@ const Shoplist = (props: any) => {
     console.log(a)
     setAvailableShop(a);
   }, [props.catagory]);
-  const shopCardStyle = { background: '#000', color: '#5cc' };
+  const shopCardStyle = { background: '#ddd', color: '#800' };
   return (
-    <div>
+    <div className="shop-container">
       <div>you have selected {props.catagory} </div>
       <div>
         {availableShop.map((shop) =>
           <div style={shopCardStyle}>
-            <div>ShopName: {shop.shopName}</div>
+            <div className={classes.shopName}>ShopName: {shop.shopName}</div>
             <div>Address: {shop.address}</div>
           </div>
         )}
@@ -52,3 +56,4 @@ const Shoplist = (props: any) => {
 };
 
 export default Shoplist;
+
