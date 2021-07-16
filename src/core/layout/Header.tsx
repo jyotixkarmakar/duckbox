@@ -67,7 +67,7 @@ class Header extends Component<any, any> {
         console.log("User don't want to show his friends that he visited Kabul, so if the current city is Kabul he wont render that");
         console.log("current props: ", this.props, " updated props: ", nextProps);
         console.log("current state: ", this.state, " updated state: ", nextState);
-        if (nextState.usersAddress == "Kabul") {
+        if (nextState.usersAddress === "Kabul") {
             return false;
         }
         else {

@@ -32,20 +32,20 @@ const CategoryDetails = (props: any) => {
   const [shopDivs, setShopDivs] = useState<any>([]);
 
   const [availableShop, setAvailableShop] = useState<any[]>([]);
-  useEffect(() => {
-    let arr = []
-    if (availableShop && availableShop.length) {
-      for (let i = 0; i < availableShop.length; i++) {
-        let shopdiv = <div style={shopCardStyle}>
-          <div className={classes.shopName}>ShopName: {availableShop[i].shopName}</div>
-          <div>Address: {availableShop[i].address}</div>
-        </div>
-        arr.push(shopdiv);
-      }
+//   useEffect(() => {
+//     let arr = []
+//     if (availableShop && availableShop.length) {
+//       for (let i = 0; i < availableShop.length; i++) {
+//         let shopdiv = <div style={shopCardStyle}>
+//           <div className={classes.shopName}>ShopName: {availableShop[i].shopName}</div>
+//           <div>Address: {availableShop[i].address}</div>
+//         </div>
+//         arr.push(shopdiv);
+//       }
 
-      setShopDivs(arr)
-    }
-  }, [availableShop])
+//       setShopDivs(arr)
+//     }
+//   }, [availableShop])
   useEffect(() => {
     let sl: any[] = []
     // for (let i = 0; i < shoplist.length; i++) {
@@ -88,7 +88,7 @@ const CategoryDetails = (props: any) => {
     });
     console.log(a)
     setAvailableShop(a);
-  }, [catagoryName]);
+  }, [catagoryName,shoplist]);
   const shopCardStyle = { background: '#ddd', color: '#800' };
   return (
     <div className="shop-container">

@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useHistory } from "react-router-dom";
 
 
 const Catagory = (props: any) => {
-  const [catagoryName, setCatagoryName] = useState();
+  let [catagoryName, setCatagoryName] = useState();
   let history = useHistory();
   const changeCatagoryName = (catagoryName: any) => {
+    setCatagoryName(catagoryName);
     let link="/catagory/" + catagoryName;
     history.push(link)
 
