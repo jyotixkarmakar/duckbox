@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 class Header extends Component<any, any> {
 
     // initialization stage
@@ -31,6 +32,24 @@ class Header extends Component<any, any> {
                     Change Company Address
                 </button>
                 <a href="https://www.google.com/">go to google</a>
+                <div>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/p1">Page 1</Link>
+                            </li>
+                            <li>
+                                <Link to="/p2">Page 2</Link>
+                            </li>
+                            <li>
+                                <Link to="/catagory">Category</Link>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         );
     }
