@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { useStyles } from "./HeadersStyles";
 import logo from "./../../assets/logo.png"
 import { useState } from "react";
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 const Header = (props: any) => {
     const classes = useStyles();
     const [city, setCity] = useState("Raiganj");
@@ -52,7 +54,7 @@ const Header = (props: any) => {
                             Search
                         </Grid>
                         <Grid item xs={4}>
-                            Cart
+                            <ShoppingCartIcon color="primary" ></ShoppingCartIcon>
                         </Grid>
                         <Grid item xs={4}>
                             Sign In
