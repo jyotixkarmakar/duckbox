@@ -7,3 +7,7 @@ body {
 code {
   font-family: 'Roboto', sans-serif;
 }
+
+.container{
+  padding:0 12%;
+}

@@ -1,20 +1,21 @@
-const parentDiv = {
-    margin: "15px",
-    backgroundColor: "#eee",
-    padding: "15px",
-    border: "1px solid #ccc",
-    borderRadius: "5px"
+import { makeStyles } from "@material-ui/core";
 
-}
-const buttonStyles = {
-    backgroundColor: "#05a",
-    padding: "5px",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    cursor:"pointer",
-    color:"#fff"
-}
-export const styles = {
-    parentDiv: parentDiv,
-    buttonStyles: buttonStyles
-}
+
+export const useStyles = makeStyles({
+    topBar: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        background: "linear-gradient(90.05deg, rgb(9, 17, 37) -2.5%, rgb(33, 61, 133) 100.83%)",
+        height: "44px",
+        fontWeight: 500,
+        color: "#fff",
+        fontSize: "18px"
+    },
+    catagoryContainer:{
+        background: "rgb(247, 253, 250)"
+    },
+    essential:{
+        padding:"50px 0"
+    }
+});

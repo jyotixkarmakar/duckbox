@@ -7,7 +7,6 @@ import CategoryDetails from "../../pages/CatagoryDetails/CategoryDetails";
 const PageContainer = (props: any) => {
     return (
             <div>
-                page Container
                 <Switch>
                     <Route path="/p1">
                         <Page1 />

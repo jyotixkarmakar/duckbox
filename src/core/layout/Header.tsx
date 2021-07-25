@@ -13,7 +13,7 @@ const Header = (props: any) => {
         setCity(event.target.value)
     }
     return (
-        <div className={classes.root}>
+        <div className={classes.root+" container"}>
             <Grid container spacing={2}>
                 <Grid item xs={2}>
                     <Typography>
@@ -60,9 +60,6 @@ const Header = (props: any) => {
                             Sign In
                         </Grid>
                     </Grid>
-                </Grid>
-                <Grid item xs={12} className={classes.headerBottom}>
-                    fgfhgfhg
                 </Grid>
             </Grid>
         </div>);
