@@ -17,5 +17,8 @@ export const useStyles = makeStyles({
     },
     essential:{
         padding:"50px 0"
+    },
+    catagoryCard:{
+        height:"200px"
     }
 });
