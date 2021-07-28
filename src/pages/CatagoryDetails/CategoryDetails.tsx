@@ -2,99 +2,48 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import { useStyles } from "./jss-styles"
 import { useParams } from "react-router-dom";
+import axios from "axios";
+import { Shop } from "@material-ui/icons";
 
 const CategoryDetails = (props: any) => {
   const classes = useStyles();
   let { catagoryName } = useParams<any>();
-  const shoplist = [
-    { shopName: "bigbazar", address: "raiganj", catagory: "Fruit" },
-    {
-      shopName: "Arthi Provision Store",
-      address: "Jayanagar",
-      catagory: "Vegetable",
-    },
-    { shopName: "G M store", address: "Shivajinagar", catagory: "Grocery" },
-    { shopName: "Greenmart", address: "Vivek Nagar", catagory: "Vegetable" },
-    { shopName: "New Darshan Store", address: "Eji pura", catagory: "Grocery" },
-    { shopName: "Om Sai Ram Traders", address: "MG Road", catagory: "Fruit" },
-    {
-      shopName: "Fresh Mart",
-      address: " Sampagni Nagar",
-      catagory: "Vegetable",
-    },
-    {
-      shopName: "Madeena Supermarket",
-      address: "Neelasandra",
-      catagory: "Grocery",
-    },
-  ];
-
-  const [shopDivs, setShopDivs] = useState<any>([]);
-
-  const [availableShop, setAvailableShop] = useState<any[]>([]);
-  useEffect(() => {
-    let arr = []
-    if (availableShop && availableShop.length) {
-      for (let i = 0; i < availableShop.length; i++) {
-        let shopdiv = <div style={shopCardStyle}>
-          <div className={classes.shopName}>ShopName: {availableShop[i].shopName}</div>
-          <div>Address: {availableShop[i].address}</div>
-        </div>
-        arr.push(shopdiv);
-      }
-
-      setShopDivs(arr)
+  const m1 = async () => {
+    let shops: any;
+    shops = await axios.get('https://60fffde9bca46600171cf670.mockapi.io/shop');
+    console.log(shops);
+    let id=Math.floor(Math.random() * 101);
+    let newShop = {
+      createdAt: "2021-07-27T09:32:46.083Z",
+      name: "My Vodafone shop no:"+id,
+      avatar: "https://cdn.fakercloud.com/avatars/brandclay_168.jpg"
     }
-  }, [availableShop])
-  useEffect(() => {
-    let sl: any[] = []
-    // for (let i = 0; i < shoplist.length; i++) {
-    //   sl.push(shoplist[i].shopName)
-    // }
-    shoplist.forEach((shop, index) => {
-      // console.log(shop.shopName)
-      sl.push(shop.shopName)
-    })
-    let mapFun = (item: any) => {
-      return item.shopName
+    let resp = await axios.post('https://60fffde9bca46600171cf670.mockapi.io/shop', newShop)
+    
+    let newShop1 = {
+      createdAt: "2021-07-27T09:32:46.083Z",
+      name: "My updated Vodafone shop no:"+id,
+      avatar: "https://cdn.fakercloud.com/avatars/brandclay_168.jpg"
     }
-    let sl1 = shoplist.map(mapFun)
-    console.log(sl1)
-    console.log(sl);
-    let slF: any[] = []
+    let resp1 = await axios.put('https://60fffde9bca46600171cf670.mockapi.io/shop/2', newShop)
+    
+    let resp2 = await axios.delete('https://60fffde9bca46600171cf670.mockapi.io/shop/2')
+    
+    console.log(resp);
+  }
+
+  useEffect(() => {
+
+    m1();
+
+  }, [])
 
 
 
-
-
-    let slf1=shoplist.find(item=>{
-      return  item.shopName.length <= 10
-    })
-    console.log(slf1)
-
-
-    shoplist.forEach((shop, index) => {
-      // console.log(shop.shopName)
-      if (shop.shopName.length <= 10) {
-        slF.push(shop)
-      }
-    })
-
-
-    console.log("use")
-    let a = shoplist.filter((shop) => {
-      console.log(shop.catagory);
-      return shop.catagory === catagoryName
-    });
-    console.log(a)
-    setAvailableShop(a);
-  }, [catagoryName,shoplist]);
-  const shopCardStyle = { background: '#ddd', color: '#800' };
   return (
     <div className="shop-container">
       <div>you have selected {catagoryName} </div>
       <div>
-        {shopDivs}
       </div>
     </div>
   );
