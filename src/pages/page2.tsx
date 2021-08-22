@@ -1,5 +1,6 @@
 export const Page2=(props:any)=>{
+    console.log(props)
     return <div>
-        Page 2
+        shopname: {props?.shopDetails?.name}
     </div>
 }
